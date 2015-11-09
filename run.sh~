@@ -14,7 +14,8 @@ function blog_update {
 		  -geometry 400x100 \
 		  -title "Blog Update";
 
-		answer=$?
+		answer=$?;
+		echo $answer
 		$a = 0
 		
             	if [ "$answer" = "$a" ]; then

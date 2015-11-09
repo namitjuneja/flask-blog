@@ -16,14 +16,14 @@ function blog_update {
 
 		answer=$?;
 		echo $answer
-		$a = 0
+		a=0
 		
-            	if [ "$answer" = "$a" ]; then
+            	if [ "$answer"="$a" ]; then
                 	true
 	        else
         	        sleep $(($answer))
 			blog_update
-        	fi			
+        	fi				
 	fi
 }
 
