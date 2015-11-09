@@ -15,7 +15,6 @@ function blog_update {
 		  -title "Blog Update";
 
 		answer=$?;
-		a=0
 		
             	if [ $answer -eq 0 ]; then
                 	true
