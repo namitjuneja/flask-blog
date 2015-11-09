@@ -15,10 +15,9 @@ function blog_update {
 		  -title "Blog Update";
 
 		answer=$?;
-		echo $answer
 		a=0
 		
-            	if [ "$answer"="$a" ]; then
+            	if [ $answer -eq 0 ]; then
                 	true
 	        else
         	        sleep $(($answer))

@@ -1,15 +1,7 @@
-gxmessage -center 'OFFLINE, Unable to push blog updates, Retry in ->'\
-		  -buttons "5 minutes":5,"10 minutes":10,"Not today":0 \
-		  -geometry 400x100 \
-		  -title "Blog Update";
-
-		answer=$?;
-		echo $answer
-		a=0
-		
-            	if [ "$answer" = "$a" ]; then
-                	true
-	        else
-        	        sleep $(($answer))
-			blog_update
-        	fi	
+funky ()
+{ # This is about as simple as functions get.
+  echo "This is a funky function."
+  echo "Now exiting funky function."
+  funky
+} # Function declaration must precede call.
+funky
