@@ -1,0 +1,12 @@
+{% for page in pages %}
+	<h2>Page title: {{page.title}} </h2>
+	{% if page.meta.tags|length %}
+		<h3>Tagged:</h3>
+		{% for tag in page.meta.tags %}
+			<a href="{{ url_for("tag", tag=tag) }}">{{ tag }}</a>
+		{% endfor %}
+	{% endif %}
+	<a href="{{url_for("page", path=page.path)}}">{{page.title}}</a>
+	{% else %}
+	<h2>No fucking page</h2>
+{% endfor %}
