@@ -1,12 +1,12 @@
 function blog_update {
 	wget -q --tries=10 --timeout=20 --spider http://google.com
 	if [[ $? -eq 0 ]]; then
+		python ~/Codes/blog2/main.py
 		git add .
 		now=$(date)
 		git commit -am "automated commit on $now"
 		git push heroku master
 		gxmessage "blog push successful"
-		python ~/Codes/blog2/main.py
 	else
 
 		gxmessage -center \
