@@ -9,18 +9,19 @@ function blog_update {
 		python ~/Codes/blog2/main.py
 	else
 
-		gxmessage -center \
-		  -buttons "5 minutes":5,"10 minutes":10, "Not Today":0 \
-		  -geometry 290x80 \
-		   -title "Blog Update"'OFFLINE, Unable to push blog updates, Retry in ->'
+		gxmessage -center 'OFFLINE, Unable to push blog updates, Retry in ->'\
+		  -buttons "5 minutes":5,"10 minutes":10,"Not today":0 \
+		  -geometry 400x100 \
+		  -title "Blog Update";
 
-		answer=$?
+		answer=$?;
+		echo $answer
 		$a = 0
 		
             	if [ "$answer" = "$a" ]; then
-                	:
+                	true
 	        else
-        	        sleep $(($answer * 60))
+        	        sleep $(($answer))
 			blog_update
         	fi			
 	fi
