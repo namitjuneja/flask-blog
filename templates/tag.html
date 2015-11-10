@@ -1,8 +1,99 @@
-{% extends "base.html" %}
+
+
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <title>Ordered List</title>
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='screen.css') }}">
+        <link rel="icon" type="image/png" href="http://namitjuneja.com/favicon.png">
+
+        <script src="{{ url_for('static', filename='scale.js') }}"></script>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    </head>
+<body>
+    <div class="content">
+
+        <header>
+            <h2><span><a href="./Ordered List_files/Ordered List.html">ordered<span>list</span></a></span></h2>
+            <p>writing by <a href="https://namitjuneja.com">namit juneja</a></p>
+        </header>
+
+        <blockquote>
+          rambling thoughts on software development, product design, and working with a team
+        </blockquote>
+        <strong>tag </strong><i>{{tag}}</i>
+        {% for page in pages %}
+        <article>
+            <div class="meta">
+                <p class="date">{{ page.date }}</p>
+                <h1><a href="{{url_for("page", path=page.path)}}">{{page.title}}</a></h1>
+                <p>{{ page.glimpse }}</p>
+                <p><a href="{{url_for("page", path=page.path)}}" class="button">Read more</a></p>
+          </div>
+    </article>
+    {% endfor %}
+
+    
+
+  
+
+
+
+
+    <section class="pagination">
+    </section>
+
+
+        <footer>
+      <p>Copyright © 2015 Namit Juneja. All Rights Reserved.</p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+    <script type="text/javascript">
+      var headlines = document.getElementsByTagName('h2');
+
+      for (var i = 0; i < headlines.length; i++) {
+        var headline = headlines[i];
+        headline.innerHTML = '<span>' + headline.innerHTML + '</span>';
+      }
+    </script>
+
+  </div>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- {% extends "base.html" %}
 
 {% block content %}
     <h2>List of stuff tagged <em>{{ tag }}</em></h2>
     {% with pages=pages  %}
         {% include "_list.html" %}
     {% endwith %}
-{% endblock content %}
+{% endblock content %} -->

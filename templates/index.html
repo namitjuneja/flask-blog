@@ -28,48 +28,20 @@
         {% for page in pages %}
         <article>
             <div class="meta">
-                <p class="date">{{ page.date }}<!-- May 22, 2015 --></p>
+                <p class="date">{{ page.date }}</p>
                 <h1><a href="{{url_for("page", path=page.path)}}">{{page.title}}</a></h1>
-                <p>I don't know how to design software without building it. I said it. Maybe that means my design skills need to be better. Sure, I'll start with sketches or mockups. But very quickly, I'll move into the build.</p>
+                <p>{{ page.glimpse }}</p>
                 <p><a href="{{url_for("page", path=page.path)}}" class="button">Read more</a></p>
           </div>
     </article>
     {% endfor %}
 
-    <article>
-        <div class="meta">
-            <p class="date">December 29, 2013</p>
-            <h1><a href="http://orderedlist.com/blog/finishing/">Finishing</a></h1>
-            <p>For me, starting a project is thrilling. The unknown is exciting. The opportunity to solve new problems in new ways is inspiring. But nothing compares to the joy of finishing. Starting is easy. Finishing is hard.</p>
-            <p><a href="http://orderedlist.com/blog/finishing/" class="button">Read more</a></p>
-        </div>
-  </article>
+    
+
+  
 
 
-  <article>
-    <div class="meta">
-      <p class="date">
-        November 14, 2013
-      </p>
 
-      <h1><a href="http://orderedlist.com/blog/dont-be-interesting/">Don’t Be Interesting</a></h1>
-
-      <p>In <a href="http://orderedlist.com/blog/the-threat-of-creativity/">my last post</a>, I explained how a disciplined approach to designing creates better results. But how does one go about selecting the perfect combination of features to include in your designs?</p>
-
-
-      <p><a href="http://orderedlist.com/blog/dont-be-interesting/" class="button">Read more</a></p>
-    </div>
-  </article>
-
-
-  <article>
-    <div class="meta">
-      <p class="date">October 17, 2013</p>
-      <h1><a href="http://orderedlist.com/blog/the-threat-of-creativity/">The Threat of Creativity</a></h1>
-      <p>Designers tend to laud the concept of creativity. A unique, original idea that has never existed before. It takes imagination. Skill. Vision. Confidence.</p>
-      <p><a href="http://orderedlist.com/blog/the-threat-of-creativity/" class="button">Read more</a></p>
-    </div>
-  </article>
 
     <section class="pagination">
     </section>

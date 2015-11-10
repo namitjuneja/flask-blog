@@ -24,6 +24,9 @@
           <h1>{{ page.title }}</h1>
 
           <div class="excerpt">
+          {{ page.top }}
+          </div>
+
           {{ page.html|safe }}
           <!-- <p>I don't know how to design software without building it. I said it. Maybe that means my design skills need to be better. Sure, I'll start with sketches or mockups. But very quickly, I'll move into the build.</p>
 
@@ -68,11 +71,11 @@
 
 <div class="pagination">
   
-    <a href="http://orderedlist.com/blog/finishing/" class="button button-previous">Finishing</a>
+    <a href="{{url_for("page", path= dict.prev_path ) }}" class="button {{ dict.prev_disabled }} button-previous">{{ dict.prev_title }}</a>
   
 
   
-    <span class="button button-disabled button-next">No newer posts</span>
+    <a href="{{url_for("page", path= dict.next_path ) }}" class="button {{ dict.next_disabled }} button-next">{{ dict.next_title }}</a>
   
 </div>
 

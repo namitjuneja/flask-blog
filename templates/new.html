@@ -1,0 +1,38 @@
+<html>
+<head>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+	
+	<script type="text/javascript" src="{{ url_for('static', filename='to-markdown.js') }}">\</script>
+	<script type="text/javascript" src="{{ url_for('static', filename='markdown.js') }}">\</script>
+	<script type="text/javascript" src="{{ url_for('static', filename='bootstrap-markdown.js') }}">\</script>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap-markdown.min.css') }}">
+
+</head>
+<body>
+	<div align="center">
+		<form action="/gen/" style="width: 98%;height: 100%;" method="post">
+			<br>
+			<input name="title" align="left" style="width: 100%;" type="text" placeholder="Title" />
+			<br><br>
+			<input name="top" align="left" style="width: 100%;" type="text" placeholder="Top" />
+			<br><br>
+			<input name="tag" align="left" style="width: 100%;" type="text" placeholder="Tag" data-role="tagsinput">
+			<br><br>
+			<textarea id="some-textarea" name="content" data-provide="markdown" rows="10"></textarea>
+			<hr/>
+			<button type="submit" class="btn" align="left">Submit</button>
+		</form> 
+	</div>
+	<script>
+		$("#some-textarea").markdown({autofocus:true,savable:true})
+	</script>
+</body>
+</html>
