@@ -24,7 +24,7 @@
         <blockquote>
           rambling thoughts on software development, product design, and working with a team
         </blockquote>
-        <strong>tag </strong><i>{{tag}}</i>
+        <strong>tag </strong><i><a href="/tag/{{tag}}">{{tag}}</a></i>
         {% for page in pages %}
         <article>
             <div class="meta">
@@ -33,6 +33,7 @@
                 <p>{{ page.glimpse }}</p>
                 <p><a href="{{url_for("page", path=page.path)}}" class="button">Read more</a></p>
           </div>
+          {{page.path}}
     </article>
     {% endfor %}
 

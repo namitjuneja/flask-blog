@@ -14,7 +14,13 @@
 	<script type="text/javascript" src="{{ url_for('static', filename='markdown.js') }}">\</script>
 	<script type="text/javascript" src="{{ url_for('static', filename='bootstrap-markdown.js') }}">\</script>
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap-markdown.min.css') }}">
-
+	<script src="{{ url_for('static', filename='bootstrap-tagsinput.js') }}"></script>
+	<link rel="stylesheet" href="{{ url_for('static', filename='bootstrap-tagsinput.css') }}">
+	<style>
+	.bootstrap-tagsinput {
+		  width: 100% !important;
+		}
+	</style>
 </head>
 <body>
 	<div align="center">
@@ -24,7 +30,7 @@
 			<br><br>
 			<input name="top" align="left" style="width: 100%;" type="text" placeholder="Top" />
 			<br><br>
-			<input name="tag" align="left" style="width: 100%;" type="text" placeholder="Tag" data-role="tagsinput">
+			<input name="tag" align="left" type="text" placeholder="Tag" data-role="tagsinput" id="tag">
 			<br><br>
 			<textarea id="some-textarea" name="content" data-provide="markdown" rows="10"></textarea>
 			<hr/>
@@ -32,7 +38,12 @@
 		</form> 
 	</div>
 	<script>
-		$("#some-textarea").markdown({autofocus:true,savable:true})
+		$("#some-textarea").markdown({autofocus:true,savable:true});
+		
+		$('#tag').tagsinput({
+			  confirmKeys: [13, 44]
+			});
+		
 	</script>
 </body>
 </html>

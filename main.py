@@ -37,15 +37,16 @@ def gen():
 	glimpse = " ".join( cleanhtml(markdown.markdown(content)).split()[:40] )
 	top = request.form["top"]
 	tag = request.form["tag"]
-	print tag
+	
 
 
 	file = open("pages/" + str(date) + ".md", "w")
-	file.write("title: " + title + "\n")
-	file.write("glimpse: " + glimpse + "\n")
+	file.write("title: \"" + title.replace("\"", "\\\"") + "\"\n")
+	file.write("glimpse: \"" + glimpse.replace("\"", "\\\"") + "\"\n")
 	if top:
-		file.write("top: " + top + "\n")
-	file.write("date: " + date_formatted + "\n\n")
+		file.write("top: \"" + top.replace("\"", "\\\"") + "\"\n")
+	file.write("tag: [" + tag + "]\n")
+	file.write("date: \"" + date_formatted + "\"\n\n")
 	file.write(content)
 	file.close()
 	return redirect("/")
@@ -79,7 +80,7 @@ def page(path):
 
 @app.route('/tag/<string:tag>/')
 def tag(tag):
-    tagged = [p for p in pages if tag in p.meta.get('tags', [])]
+    tagged = [p for p in pages if tag in p.meta.get('tag', [])]
     return render_template('tag.html', pages=tagged, tag=tag)
 
 if __name__ == '__main__':
